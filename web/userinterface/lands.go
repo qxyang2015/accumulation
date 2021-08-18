@@ -1,7 +1,7 @@
 package ui
 
 import (
-	"vesta_mlp/websrv/demo/problemdomain"
+	"web/problemdomain"
 
 	"github.com/fasthttp/router"
 )

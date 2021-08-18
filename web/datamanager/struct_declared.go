@@ -1,8 +1,8 @@
 package dm
 
 import (
-	"vesta_mlp/util/database"
-	"vesta_mlp/util/queue"
+	"tools/database"
+	"tools/queue"
 )
 
 //db和文件服务器配置信息

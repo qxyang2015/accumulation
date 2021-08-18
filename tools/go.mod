@@ -12,5 +12,4 @@ require (
 	github.com/valyala/fasthttp v1.29.0
 	google.golang.org/grpc/examples v0.0.0-20210812181202-a42567fe92f0 // indirect
 	gopkg.in/yaml.v2 v2.4.0
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )

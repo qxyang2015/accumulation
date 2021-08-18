@@ -1,11 +1,9 @@
 package dm
 
 import (
-	db "github.com/qxyang2015/accumulation/database"
-	"github.com/qxyang2015/accumulation/queue"
-	"github.com/qxyang2015/accumulation/tools/error_tools"
-
 	"github.com/spf13/viper"
+	"tools/error_tools"
+	"tools/queue"
 )
 
 var Config Struct_Config
