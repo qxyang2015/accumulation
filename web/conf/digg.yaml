@@ -1,0 +1,6 @@
+server:
+    host: :9091
+    log: ./conf/syslog.xml
+    readtimeout: 30000
+    writetimeout: 60000
+    maxconcurrency: 10240

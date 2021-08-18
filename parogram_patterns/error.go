@@ -6,7 +6,7 @@ import (
 )
 
 /*
-func parse(r io.Reader) (*Point, error) {
+func parse(r io.Reader) (*Point, error_tools) {
 
 	var p Point
 
@@ -31,9 +31,9 @@ func parse(r io.Reader) (*Point, error) {
 //要解决这个事，我们可以用函数式编程的方式，如下代码示例：
 
 /*
-func parse(r io.Reader) (*Point, error) {
+func parse(r io.Reader) (*Point, error_tools) {
 	var p Point
-	var err error
+	var err error_tools
 	read := func(data interface{}) {
 		if err != nil {
 			return
@@ -66,7 +66,7 @@ for scanner.Scan() {
 }
 
 if err := scanner.Err(); err != nil {
-    // process the error
+    // process the error_tools
 }
 */
 
@@ -84,7 +84,7 @@ func (r *Reader) read(data interface{}) {
 /*
 然后，我们的代码就可以变成下面这样：
 
-func parse(input io.Reader) (*Point, error) {
+func parse(input io.Reader) (*Point, error_tools) {
 	var p Point
 	r := Reader{r: input}
 
