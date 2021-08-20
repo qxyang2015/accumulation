@@ -1,12 +1,13 @@
 package main
 
 import (
+	"fmt"
+	"github.com/qxyang2015/accumulation/tools/common"
+	"github.com/qxyang2015/accumulation/tools/http_tools"
+	dm "github.com/qxyang2015/accumulation/web/datamanager"
+	ui "github.com/qxyang2015/accumulation/web/userinterface"
 	"runtime/debug"
 	"time"
-	"tools/common"
-	"tools/http_tools"
-	dm "web/datamanager"
-	"web/userinterface"
 )
 
 const (
@@ -14,8 +15,7 @@ const (
 )
 
 func main() {
-	startTime := time.Now()
-
+	fmt.Println("Run Web")
 	go func() {
 		for {
 			debug.FreeOSMemory()

@@ -2,6 +2,7 @@ package http_tools
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -34,11 +35,11 @@ func OptUrlQuery(paramMap map[string]string) reqOption {
 	}
 }
 
-//func OptWrite(writer io.Writer) reqOption {
-//	return func(r *http.Request) {
-//
-//	}
-//}
+func OptWrite(w io.Writer) reqOption {
+	return func(r *http.Request) {
+		r.Write(w)
+	}
+}
 
 type clientFuntion func(c *http.Client)
 

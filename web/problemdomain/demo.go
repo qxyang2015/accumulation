@@ -1,8 +1,7 @@
 package pd
 
 import (
-	"tools/http_tools"
-
+	"github.com/qxyang2015/accumulation/tools/http_tools"
 	"github.com/valyala/fasthttp"
 )
 

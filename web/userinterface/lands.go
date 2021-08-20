@@ -1,16 +1,15 @@
 package ui
 
 import (
-	"web/problemdomain"
+	"github.com/qxyang2015/accumulation/web/problemdomain"
 
 	"github.com/fasthttp/router"
 )
 
-const Prefix = "/vesta/demo/"
+const Prefix = "/web/"
 
 func Init(router *router.Router) {
-
 	//location和执行函数进行绑定
-	router.GET(Prefix+"location", pd.Demo)
-	router.POST(Prefix+"location", pd.Demo)
+	router.GET(Prefix+"demo", pd.Demo)
+	router.POST(Prefix+"formdata", pd.FormdataDemo)
 }

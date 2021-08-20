@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/fasthttp/router"
+	"github.com/qxyang2015/accumulation/tools/error_tools"
+	"github.com/qxyang2015/accumulation/tools/plugin"
 	"github.com/valyala/fasthttp"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
@@ -13,8 +15,6 @@ import (
 	"runtime"
 	"syscall"
 	"time"
-	"tools/error_tools"
-	"tools/plugin"
 )
 
 type Config struct {
@@ -43,26 +43,15 @@ func ServeInit(yFile string) *Config {
 	err = yaml.Unmarshal(data, &conf)
 	error_tools.Assert(err)
 
-	//// Init error_tools log
-	//log4sys := logging.GetLogger()
-	//log4sys.Info("server [%+v]", conf.Server)
-	//
-	//log4sys.Warn("Server UserInterface Init模块开始进行初始化加载")
 	// Init modules
 	for i := 0; i < len(conf.Modules); i++ {
-		//log4sys.Info("Load module name=%s, conf=%s\n",
-		//	conf.Modules[i].Name, conf.Modules[i].Conf)
 		plugin.Open(conf.Modules[i].Name, conf.Modules[i].Conf)
 	}
 	// Dispatch locations
 	conf.Router = router.New()
 	for i := 0; i < len(conf.Modules); i++ {
-		//log4sys.Info("Dispatch location=%s, module=%s\n",
-		//	conf.Modules[i].Location, conf.Modules[i].Name)
 		plugin.Dispatch(conf.Modules[i].Location, conf.Modules[i].Name, conf.Router)
 	}
-
-	//log4sys.Warn("Server UserInterface Init模块加载完成")
 
 	return &conf
 
@@ -71,7 +60,6 @@ func ServeInit(yFile string) *Config {
 func ServeMain(conf *Config) {
 
 	server := &fasthttp.Server{
-		//ReadBufferSize: 30 * 1024*1024,
 		Handler:            conf.Router.Handler,
 		ReadTimeout:        conf.Server.ReadTimeOut * time.Millisecond,
 		WriteTimeout:       conf.Server.WriteTimeOut * time.Millisecond,

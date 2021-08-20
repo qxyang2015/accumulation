@@ -1,8 +1,8 @@
 package dm
 
 import (
-	"tools/database"
-	"tools/queue"
+	"github.com/qxyang2015/accumulation/tools/database"
+	"github.com/qxyang2015/accumulation/tools/queue"
 )
 
 //db和文件服务器配置信息
