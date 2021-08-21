@@ -23,7 +23,7 @@ func FormdataDemo(ctx *fasthttp.RequestCtx) {
 	reader, err := ctx.MultipartForm()
 	if err != nil {
 		response.Code = -1
-		response.Msg = fmt.Sprintf("解析Request错误[%v]", string(ctx.PostBody()))
+		response.Msg = fmt.Sprintf("解析Request错误[%v]", err)
 		return
 	}
 	values := reader.Value

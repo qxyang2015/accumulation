@@ -10,6 +10,6 @@ const Prefix = "/web/"
 
 func Init(router *router.Router) {
 	//location和执行函数进行绑定
-	router.GET(Prefix+"demo", pd.Demo)
+	router.POST(Prefix+"demo", pd.Demo)
 	router.POST(Prefix+"formdata", pd.FormdataDemo)
 }
