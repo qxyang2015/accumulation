@@ -12,5 +12,5 @@ type DemoRequest struct {
 
 func Demo(ctx *fasthttp.RequestCtx) {
 	fmt.Println("request:", string(ctx.Request.Body()))
-	http_tools.HttpResponse(ctx, ctx.Request.Body())
+	http_tools.HttpResponse(ctx, string(ctx.Request.Body()))
 }
