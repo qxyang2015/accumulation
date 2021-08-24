@@ -32,7 +32,7 @@ func (mr *MiddleRouter) Add(method, url string, h fasthttp.RequestHandler) {
 	if _, ok := mr.routerMap[method]; !ok {
 		mr.routerMap[method] = make(map[string]fasthttp.RequestHandler)
 	}
-	mr.routerMap[method][url] = h
+	mr.routerMap[method][url] = mergeHandler
 }
 
 func TimeMiddleWare(next fasthttp.RequestHandler) fasthttp.RequestHandler {
