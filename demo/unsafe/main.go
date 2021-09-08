@@ -18,6 +18,8 @@ type Programmer struct {
 
 func main() {
 	s := make([]int, 9, 20)
+	var s0 = *(*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&s))))
+	fmt.Println(s0)
 	var Len = *(*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&s)) + uintptr(8)))
 	fmt.Println(Len, len(s)) // 9 9
 	var Cap = *(*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&s)) + uintptr(16)))
