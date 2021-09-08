@@ -6,6 +6,7 @@ require (
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/elastic/go-elasticsearch/v7 v7.14.0
 	github.com/fasthttp/router v1.4.1
+	github.com/fasthttp/websocket v1.4.3 // indirect
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/golang/protobuf v1.5.2
 	github.com/jinzhu/gorm v1.9.16
