@@ -18,13 +18,9 @@ const json = `{
 }`
 
 func main() {
-	paths := []string{"name.first", "age", "friends"}
-	values := gjson.GetMany(json, paths...)
-	for _, v := range values {
-		fmt.Println(v.Type, v.Raw)
-		if v.Type == gjson.JSON {
-			cv := v.Get("#.first")
-			fmt.Println("cv", cv.Type, cv.Raw)
-		}
-	}
+	contact := gjson.Get(json, "name")
+	contact.ForEach(func(key, value gjson.Result) bool {
+		fmt.Println(key, value)
+		return true
+	})
 }
