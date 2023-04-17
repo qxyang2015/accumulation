@@ -2,43 +2,34 @@ package main
 
 import (
 	"fmt"
-	"github.com/shirou/gopsutil/v3/cpu"
+	"runtime"
+	"sync"
 	"time"
-	// "github.com/shirou/gopsutil/mem"  // to use v2
 )
 
 func main() {
-	v1, err := cpu.Percent(0, false)
-	if err != nil {
-		fmt.Println("v1", err)
-		return
+	now := time.Now()
+	cn := runtime.NumCPU()
+	betch := 10000
+	sumList := make([]int, cn)
+	wg := sync.WaitGroup{}
+	for i := 0; i < cn; i++ {
+		wg.Add(1)
+		go func(idx int) {
+			defer wg.Done()
+			sum := 0
+			for j := idx * betch; j < 1000000000000; j++ {
+				sum += j
+			}
+			sumList[idx] = sum
+		}(i)
 	}
-	v2, err := cpu.Percent(0, true)
-	if err != nil {
-		fmt.Println("v2", err)
-		return
+	wg.Wait()
+	total := 0
+	for _, v := range sumList {
+		total += v
 	}
-	sum := 0.0
-	for _, v := range v2 {
-		sum += v
-	}
-	fmt.Println("不间隔时间:", v1[0], sum/float64(len(v2)))
-	for i := 0; i < 10; i++ {
-		v3, err := cpu.Percent(time.Second, false)
-		if err != nil {
-			fmt.Println("v3", err)
-			return
-		}
-		v4, err := cpu.Percent(time.Second, true)
-		if err != nil {
-			fmt.Println("v4", err)
-			return
-		}
-		sum := 0.0
-		for _, v := range v4 {
-			sum += v
-		}
-		fmt.Println("间隔1s时间:", v3[0], sum/float64(len(v4)))
-	}
+	fmt.Println(total)
+	fmt.Println("耗时：", time.Since(now))
 	fmt.Println("done")
 }
