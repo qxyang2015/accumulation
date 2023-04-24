@@ -8,6 +8,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475
 	github.com/rpcxio/rpcx-examples v1.1.6
+	github.com/shirou/gopsutil/v3 v3.23.3
 	github.com/smallnest/rpcx v1.8.6
 	github.com/tidwall/gjson v1.14.4
 	google.golang.org/grpc v1.54.0
@@ -51,7 +52,6 @@ require (
 	github.com/rpcxio/libkv v0.5.1 // indirect
 	github.com/rs/cors v1.8.3 // indirect
 	github.com/savsgio/gotils v0.0.0-20230208104028-c358bd845dee // indirect
-	github.com/shirou/gopsutil/v3 v3.23.3 // indirect
 	github.com/shoenig/go-m1cpu v0.1.4 // indirect
 	github.com/smallnest/quick v0.0.0-20220703133648-f13409fa6c67 // indirect
 	github.com/soheilhy/cmux v0.1.5 // indirect
