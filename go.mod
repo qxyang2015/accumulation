@@ -10,6 +10,7 @@ require (
 	github.com/rpcxio/rpcx-examples v1.1.6
 	github.com/shirou/gopsutil/v3 v3.23.3
 	github.com/smallnest/rpcx v1.8.6
+	github.com/spf13/cast v1.5.0
 	github.com/tidwall/gjson v1.14.4
 	google.golang.org/grpc v1.54.0
 )
