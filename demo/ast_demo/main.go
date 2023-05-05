@@ -156,7 +156,7 @@ func (vi *AddContextVisitor) addContextAndError(interfaceType *ast.InterfaceType
 func main() {
 	fSet := token.NewFileSet()
 
-	path, _ := filepath.Abs("./demo/ast_demo/demo.go")
+	path, _ := filepath.Abs("./demo/ast_demo/value_of.go")
 	f, err := parser.ParseFile(fSet, path, nil, parser.ParseComments)
 	if err != nil {
 		log.Println(err)
