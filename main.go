@@ -1,18 +1,11 @@
 package main
 
 import (
-	"strings"
-	"text/scanner"
+	"fmt"
+	"regexp"
 )
 
 func main() {
-	src := "a+b"
-
-	var s scanner.Scanner
-	s.Init(strings.NewReader(src))
-	tok := s.Scan()
-	for tok != scanner.EOF {
-		// do something with tok
-		tok = s.Scan()
-	}
+	matched1, err := regexp.MatchString(".*贷款", "银行审评贷款")
+	fmt.Println(matched1, err)
 }
